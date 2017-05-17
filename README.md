@@ -7,6 +7,12 @@
 
 See what happens!
 
+## Tags
+Checking out the tags below set the repo to a state to experiment with various commands:
+* ```demo_base``` will install drupal only.
+* ```demo_require``` adds the necessary installer paths to properly install themes, modules and profiles with the ```composer require``` command.
+
+
 ## Resources
 
 * [Composer](https://getcomposer.org/)

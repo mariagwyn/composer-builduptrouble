@@ -3,6 +3,12 @@
     "description": "Project json for Acquia Remote Administration Composer builds",
     "type": "project",
     "license": "MIT",
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    },
     "require": {
         "drupal-composer/drupal-scaffold": "^2.0.0",
         "drupal/core": "^8.3",
@@ -13,26 +19,14 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "repositories": {
-        "drupal": {
-            "type": "composer",
-            "url": "https://packages.drupal.org/8"
-        }
-    },
     "extra": {
-        "installer-paths": {
-            "docroot/core": ["type:drupal-core"]
-        },
-        "drupal-scaffold": {
-            "excludes": [
-                "sites/development.services.yml",
-                "docroot/sites/development.services.yml"
-            ],
-            "initial": {
-                "sites/default/default.services.yml": "sites/default/services.yml",
-                "sites/default/default.settings.php": "sites/default/settings.php"
-            }
-        },
+      "installer-paths": {
+          "docroot/core": ["type:drupal-core"],
+          "docroot/modules/contrib/{$name}": ["type:drupal-module"],
+          "docroot/profiles/{$name}": ["type:drupal-profile"],
+          "docroot/themes/{$name}": ["type:drupal-theme"]
+      },
+        "drupal-scaffold": {},
         "patches": [],
         "enable-patching": true
     }
